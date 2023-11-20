@@ -1,0 +1,43 @@
+<%- include('includes/header-logout.ejs') %>
+   <main>
+
+      <h2> Register Webinars</h2>
+
+      <form method="Post" action="/addwebinars_process" enctype="multipart/form-data">
+         <div>
+            <label for="title">Title</label>
+            <textarea id="title" name="title"></textarea>
+         </div>
+         <br />
+         <div>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject">
+         </div>
+         <div>
+            <label for="date">Date</label>
+            <input type="text" id="date" name="date">
+         </div>
+         <div>
+            <label for="videoId">Video ID</label>
+            <input type="text" id="videoId" name="videoId">
+         </div>
+         <div>
+            <label for="desc">Description</label>
+            <textarea class="web_desc" id="desc" name="desc" rows="4"></textarea>
+         </div>
+         <br />
+
+         <input type="submit" value="Submit">
+      </form>
+
+      <div>
+         <p>
+            <% if(typeof(errors) !='undefined' ){ for(error of errors){ %>
+               <%= error.msg %><br>
+                  <% } } %>
+         </p>
+      </div>
+   </main>
+
+
+   <%- include('includes/footer.ejs') %>

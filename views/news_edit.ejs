@@ -1,0 +1,58 @@
+<%- include('includes/header.ejs') %>
+   <!-- Checking if contact is defined before rending -->
+   <main>
+
+      <h1>
+         Edit Information
+      </h1>
+
+      <form method="Post" action="/news_edit_process" enctype="multipart/form-data">
+         <div>
+            <input type="text" id="id" name="id" hidden value="<%= news._id %>">
+         </div>
+
+         <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" value="<%= news.title %>">
+         </div>
+
+         <div>
+            <label for="date">Date</label>
+            <input type="text" id="date" name="date" value="<%= news.date %>">
+         </div>
+
+         <br />
+         <div>
+            <input type="text" id="autoMessage" name="autoMessage" value="<%= news.autoMessage %>">
+         </div>
+         <br />
+
+         <input type="submit" value="Update">
+      </form>
+
+      <div>
+         <p>
+            <% if(typeof(errors) !='undefined' ){ for(error of errors){ %>
+               <%= error.msg %><br>
+                  <% } } %>
+         </p>
+      </div>
+   </main>
+
+
+   <script src="../js/tinymce/jquery.tinymce.min.js"></script>
+   <script src="../js/tinymce/tinymce.min.js"></script>
+
+   <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
+
+   <script>
+      tinymce.init({
+         selector: '#autoMessage',
+         // width: 500,
+         height: 500,
+         menubar: false
+      });
+   </script>
+
+
+   <%- include('includes/footer.ejs') %>

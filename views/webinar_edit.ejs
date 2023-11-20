@@ -1,0 +1,49 @@
+<%- include('includes/header.ejs') %>
+   <!-- Checking if contact is defined before rending -->
+   <main>
+
+      <h1>
+         Edit Information
+      </h1>
+
+      <form method="Post" action="/webinar_edit_process" enctype="multipart/form-data">
+         <div>
+            <input type="text" id="id" name="id" hidden value="<%= webinars._id %>">
+         </div>
+         <div>
+            <label for="title">Title</label>
+            <textarea id="title" name="title"><%= webinars.title %></textarea>
+         </div>
+         <br />
+         <div>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" value="<%= webinars.subject %>">
+         </div>
+         <div>
+            <label for="date">Date</label>
+            <input type="text" id="date" name="date" value="<%= webinars.date %>">
+         </div>
+         <div>
+            <label for="videoId">Video ID</label>
+            <input type="text" id="videoId" name="videoId" value="<%= webinars.videoId %>">
+         </div>
+         <div>
+            <label for="desc">Description</label>
+            <textarea class="web_desc" id="desc" name="desc"><%= webinars.desc %></textarea>
+         </div>
+         <br />
+
+         <input type="submit" value="Update">
+      </form>
+
+      <div>
+         <p>
+            <% if(typeof(errors) !='undefined' ){ for(error of errors){ %>
+               <%= error.msg %><br>
+                  <% } } %>
+         </p>
+      </div>
+   </main>
+
+
+   <%- include('includes/footer.ejs') %>

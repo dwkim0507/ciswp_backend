@@ -1,0 +1,36 @@
+<%- include('includes/header-logout.ejs') %>
+   <main>
+
+      <h2> CISWP Publications </h2>
+
+      <table class="dashboard">
+         <tr>
+            <th class="td41">Type</th>
+            <th class="td42">year</th>
+            <th class="td43">title</th>
+            <th class="td44"></th>
+         </tr>
+         <!-- Use a forEach to display records -->
+         <% data.forEach(item=> { %>
+            <tr>
+               <td>
+                  <%= item.type %>
+               </td>
+               <td>
+                  <%= item.year %>
+               </td>
+               <td>
+                  <%= item.title %>
+               </td>
+               <td>
+                  &nbsp;&nbsp;<a href="<%= `/pub_edit/${item._id}` %>">Edit</a>
+                  &nbsp;&nbsp;<a href="<%= `/pub_delete/${item._id}` %>">Delete</a>
+               </td>
+            </tr>
+            <% }); %>
+      </table>
+
+
+   </main>
+
+   <%- include('includes/footer.ejs') %>

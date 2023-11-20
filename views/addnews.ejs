@@ -1,0 +1,49 @@
+<%- include('includes/header-logout.ejs') %>
+   <main>
+
+      <h2> Register News</h2>
+
+      <form method="Post" action="/addnews_process" enctype="multipart/form-data">
+
+         <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+         </div>
+
+         <div>
+            <label for="date">Date</label>
+            <input type="text" id="date" name="date">
+         </div>
+
+         <br />
+         <div>
+            <input type="text" id="autoMessage" name="autoMessage">
+         </div>
+
+         <br />
+         <input type="submit" value="Submit">
+      </form>
+
+      <div>
+         <p>
+            <% if(typeof(errors) !='undefined' ){ for(error of errors){ %>
+               <%= error.msg %><br>
+                  <% } } %>
+         </p>
+      </div>
+   </main>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="js/tinymce/jquery.tinymce.min.js"></script>
+   <script src="js/tinymce/tinymce.min.js"></script>
+
+   <script>
+      tinymce.init({
+         selector: '#autoMessage',
+         // width: 500,
+         height: 500,
+         menubar: false
+      });
+   </script>
+
+   <%- include('includes/footer.ejs') %>

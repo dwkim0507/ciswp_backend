@@ -1,0 +1,33 @@
+<%- include('includes/header-logout.ejs') %>
+   <main>
+
+      <h2> CISWP News </h2>
+
+      <table class="dashboard">
+         <tr>
+            <th class="td31">Title</th>
+            <th class="td32">Date</th>
+            <th class="td33"></th>
+
+         </tr>
+         <!-- Use a forEach to display records -->
+         <% data.forEach(item=> { %>
+            <tr>
+               <td>
+                  <%= item.title %>
+               </td>
+               <td>
+                  <%= item.date %>
+               </td>
+               <td>
+                  <a href="<%= `/news_edit/${item._id}` %>">Edit</a>
+                  &nbsp;&nbsp;<a href="<%= `/news_delete/${item._id}` %>">Delete</a>
+               </td>
+            </tr>
+            <% }); %>
+      </table>
+
+
+   </main>
+
+   <%- include('includes/footer.ejs') %>

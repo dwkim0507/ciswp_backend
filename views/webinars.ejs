@@ -1,0 +1,36 @@
+<%- include('includes/header-logout.ejs') %>
+   <main>
+
+      <h2> CISWP Webinars </h2>
+
+      <table class="dashboard">
+         <tr>
+            <th class="tdw41">Subject</th>
+            <th class="tdw42">Date</th>
+            <th class="tdw43">Title</th>
+            <th class="tdw44"></th>
+         </tr>
+         <!-- Use a forEach to display records -->
+         <% data.forEach(item=> { %>
+            <tr>
+               <td>
+                  <%= item.subject %>
+               </td>
+               <td>
+                  <%= item.date %>
+               </td>
+               <td>
+                  <%= item.title %>
+               </td>
+               <td>
+                  &nbsp;&nbsp;<a href="<%= `/webinar_edit/${item._id}` %>">Edit</a>
+                  &nbsp;&nbsp;<a href="<%= `/webinar_delete/${item._id}` %>">Delete</a>
+               </td>
+            </tr>
+            <% }); %>
+      </table>
+
+
+   </main>
+
+   <%- include('includes/footer.ejs') %>

@@ -1,0 +1,62 @@
+<%- include('includes/header-logout.ejs') %>
+   <main>
+
+      <h2> Register Publications</h2>
+
+      <form method="Post" action="/addpubs_process" enctype="multipart/form-data">
+
+         <div>
+            <label for="type">Type</label>
+            <input type="text" id="type" name="type">
+         </div>
+         <div>
+            <label for="author">Author</label>
+            <textarea id="author" name="author"></textarea>
+            <!-- <input type="text" id="author" name="author"> -->
+         </div>
+         <br />
+
+         <div>
+            <label for="year">Year</label>
+            <input type="text" id="year" name="year">
+         </div>
+         <div>
+            <label for="title">Title</label>
+            <textarea id="title" name="title"></textarea>
+            <!-- <input type="text" id="title" name="title"> -->
+         </div>
+         <br />
+
+         <div>
+            <label for="publisher">Publisher</label>
+            <input type="text" id="publisher" name="publisher">
+         </div>
+         <div>
+            <label for="vol">Vol</label>
+            <input type="text" id="vol" name="vol">
+         </div>
+         <div>
+            <label for="page">Page</label>
+            <input type="text" id="page" name="page">
+         </div>
+         <div>
+            <label for="desc">Description</label>
+            <textarea id="desc" name="desc"></textarea>
+            <!-- <input type="text" id="desc" name="desc"> -->
+         </div>
+         <br />
+
+         <input type="submit" value="Submit">
+      </form>
+
+      <div>
+         <p>
+            <% if(typeof(errors) !='undefined' ){ for(error of errors){ %>
+               <%= error.msg %><br>
+                  <% } } %>
+         </p>
+      </div>
+   </main>
+
+
+   <%- include('includes/footer.ejs') %>
